@@ -14,9 +14,9 @@ app.get('/', (req, res) => {
 
 });
 
-//GET Product Details. 
+//GET Product Details
 
-app.get('/products/:ProductId', async(req, res) => {
+app.get('/product/:ProductId', async(req, res) => {
   const { ProductId } = req.params;
   try {
     const response = await request(`${BaseURL}&url=https://www.amazon.com/dp/${ProductId}`);
