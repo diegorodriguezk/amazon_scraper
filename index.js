@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 //GET Product Details
 
-app.get('/product/:ProductId', async(req, res) => {
+app.get('/products/:ProductId', async(req, res) => {
   const { ProductId } = req.params;
   try {
     const response = await request(`${BaseURL}&url=https://www.amazon.com/dp/${ProductId}`);
@@ -28,7 +28,7 @@ app.get('/product/:ProductId', async(req, res) => {
 });
 //GET Product Reviews
 
-app.get('/product/:ProductId', async(req, res) => {
+app.get('/products/:ProductId', async(req, res) => {
   const { ProductId } = req.params;
   try {
     const response = await request(`${BaseURL}&url=https://www.amazon.com/reviews/${ProductId}`);
@@ -38,5 +38,16 @@ app.get('/product/:ProductId', async(req, res) => {
     res.json(error)
   }
 });
+//GET Product Offers
 
+app.get('/products/:ProductId', async(req, res) => {
+  const { ProductId } = req.params;
+  try {
+    const response = await request(`${BaseURL}&url=https://www.amazon.com//gp/offers/${ProductId}`);
+
+    res.json(JSON.parseresponse);
+  }  catch(error) {
+    res.json(error)
+  }
+});
 app.listen (PORT, () => console.log('Server running on port ${PORT}') );
