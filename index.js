@@ -26,5 +26,17 @@ app.get('/product/:ProductId', async(req, res) => {
     res.json(error)
   }
 });
+//GET Product Reviews
+
+app.get('/product/:ProductId', async(req, res) => {
+  const { ProductId } = req.params;
+  try {
+    const response = await request(`${BaseURL}&url=https://www.amazon.com/reviews/${ProductId}`);
+
+    res.json(JSON.parseresponse);
+  }  catch(error) {
+    res.json(error)
+  }
+});
 
 app.listen (PORT, () => console.log('Server running on port ${PORT}') );
