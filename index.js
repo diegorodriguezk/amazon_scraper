@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 });
 
-//GET Product Details
+//GET Product Detail
 
 app.get('/products/:ProductId', async(req, res) => {
   const { ProductId } = req.params;
